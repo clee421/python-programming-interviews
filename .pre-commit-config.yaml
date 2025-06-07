@@ -1,0 +1,54 @@
+# ---------------------------------------------------------------------------
+# .pre-commit-config.yaml — baseline hooks for a modern Python project
+# ---------------------------------------------------------------------------
+# See https://pre-commit.com for docs. Run `pre-commit install` once after
+# creating this file so the Git hook is placed under .git/hooks.
+# ---------------------------------------------------------------------------
+
+repos:
+  # 1️⃣  Quick sanity checks that catch silly mistakes early
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: check-added-large-files
+      - id: check-merge-conflict
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+
+  # 2️⃣  Ruff — linting & (optionally) import sorting / formatting
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.4.3
+    hooks:
+      - id: ruff
+        name: ruff (lint)
+        args: ["--fix"]  # auto‑fixes where safe; drop if you want pure lint
+
+  # 3️⃣  Black — opinionated code formatter (if you prefer Ruff only‑format, delete this block)
+  - repo: https://github.com/psf/black
+    rev: 24.4.2
+    hooks:
+      - id: black
+        args: ["--line-length", "120"]
+
+  # 4️⃣  Mypy static type checker (optional but recommended)
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.10.0
+    hooks:
+      - id: mypy
+        additional_dependencies: ["types-requests"]  # example stub pkgs
+
+  # 5️⃣  Pre-commit‑mirror of PyUpgrade (keeps syntax modern)
+  - repo: https://github.com/asottile/pyupgrade
+    rev: v3.16.0
+    hooks:
+      - id: pyupgrade
+        args: ["--py312-plus"]
+
+# ---------------------------------------------------------------------------
+# Explanations / tweak tips
+# ---------------------------------------------------------------------------
+# • Update `rev:` pins periodically (`pre-commit autoupdate`).
+# • Remove Black if you rely entirely on Ruff’s formatter (ruff format).
+# • Add or remove hooks as your team prefers; pre‑commit will only run
+#   hooks listed here.
+# • Run hooks on all files once: `pre-commit run --all-files`.
