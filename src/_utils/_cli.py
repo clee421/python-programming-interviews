@@ -1,7 +1,7 @@
 SECTION_ID_TO_NAME = {
     "4": "primitive_types",
     "5": "arrays",
-    "6": "string",
+    "6": "strings",
     "7": "linked_lists",
     "8": "stacks_queues",
     "9": "binary_trees",
