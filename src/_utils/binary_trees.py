@@ -10,8 +10,8 @@ class IntTreeNode:
 
 class TreeDict(TypedDict):
     val: int
-    left: "TreeDict" | None
-    right: "TreeDict" | None
+    left: Optional["TreeDict"]
+    right: Optional["TreeDict"]
 
 
 def create_int_binary_tree(tree_dict: TreeDict | None = None) -> IntTreeNode | None:
