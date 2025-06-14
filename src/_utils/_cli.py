@@ -5,6 +5,16 @@ SECTION_ID_TO_NAME = {
     "7": "linked_lists",
     "8": "stacks_queues",
     "9": "binary_trees",
+    "10": "heaps",
+    "11": "searching",
+    "12": "hash_tables",
+    "13": "sorting",
+    "14": "binary_search_tree",
+    "15": "recursion",
+    "16": "dynamic_programming",
+    "17": "greedy",
+    "18": "graphs",
+    "19": "parallel_computing",
 }
 
 
